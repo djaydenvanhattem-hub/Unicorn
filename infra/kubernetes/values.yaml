@@ -1,0 +1,11 @@
+# id="helm_values_v63"
+replicaCount: 3
+
+image:
+  backend: backend:latest
+  frontend: frontend:latest
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
