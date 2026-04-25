@@ -1,0 +1,25 @@
+# id="ci_v63"
+name: Deploy Platform
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Backend
+        run: docker build -t backend ./backend
+
+      - name: Build Frontend
+        run: docker build -t frontend ./frontend
+
+      - name: Run tests
+        run: echo "add tests here"
+
+      - name: Deploy
+        run: echo "kubectl apply -f infra/kubernetes/"
